@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<script async
+src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX">
+</script>
+
+<script>
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-538486780');
+
+</script>
+
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6366f1">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rita QR</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#6366f1;
+    --secondary:#8b5cf6;
+    --dark:#111827;
+    --gray:#6b7280;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    min-height:100vh;
+    font-family:'Inter',sans-serif;
+    background:
+    radial-gradient(circle at top left,#ffffff,#eef3ff);
+    padding:20px;
+}
+
+/* APP */
+
+.app{
+    max-width:1200px;
+    margin:auto;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:36px;
+    padding:40px;
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.06);
+}
+
+/* HEADER */
+
+.header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.logo h1{
+    font-size:54px;
+    font-weight:800;
+    color:var(--dark);
+    line-height:1;
+}
+
+.logo span{
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.logo p{
+    margin-top:15px;
+    color:var(--gray);
+    font-size:16px;
+    line-height:1.7;
+}
+
+/* LANGUAGE */
+
+.language-switcher{
+    display:flex;
+    gap:10px;
+}
+
+.language-switcher button{
+    border:none;
+    background:#eef2ff;
+    color:#4338ca;
+    padding:14px 18px;
+    border-radius:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    min-width:70px;
+}
+
+.language-switcher button:hover{
+    background:#dbe4ff;
+    transform:translateY(-2px);
+}
+
+/* MAIN */
+
+.header{
+    margin-bottom:35px;
+}
+
+.header h2{
+    font-size:44px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+.header p{
+    margin-top:12px;
+    color:var(--gray);
+    font-size:17px;
+}
+
+/* TABS */
+
+.tabs{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-bottom:35px;
+}
+
+.tab{
+    border:none;
+    padding:18px;
+    border-radius:22px;
+    background:#f5f7ff;
+    color:#4b5563;
+    font-weight:700;
+    cursor:pointer;
+    transition:.35s;
+    font-size:15px;
+}
+
+.tab.active{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* FORM */
+
+.form{
+    display:grid;
+    gap:18px;
+}
+
+.input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:#f9fafb;
+    padding:20px;
+    border-radius:22px;
+    font-size:16px;
+    transition:.3s;
+    border:2px solid transparent;
+    resize:none;
+}
+
+.input:focus{
+    background:white;
+    border-color:var(--secondary);
+    box-shadow:0 0 0 5px rgba(139,92,246,.1);
+}
+
+/* BUTTON */
+
+.generate-btn{
+    width:100%;
+    border:none;
+    margin-top:25px;
+    padding:22px;
+    border-radius:24px;
+    background:
+    linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:
+    0 15px 35px rgba(99,102,241,.25);
+}
+
+.generate-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* QR */
+
+.qr-box{
+    margin-top:40px;
+    background:white;
+    border-radius:35px;
+    padding:40px;
+    min-height:430px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    border:1px solid #f3f4f6;
+}
+
+#qrcode img{
+    width:320px;
+    max-width:100%;
+    border-radius:20px;
+    animation:fade .4s ease;
+}
+
+/* DOWNLOAD */
+
+.download{
+    margin-top:30px;
+    border:none;
+    padding:18px 28px;
+    border-radius:22px;
+    background:#111827;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    font-size:16px;
+    display:none;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#9ca3af;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* ANIMATION */
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    body{
+        padding:14px;
+    }
+
+    .app{
+        padding:26px;
+        border-radius:28px;
+    }
+
+    .header-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .language-switcher{
+        width:100%;
+    }
+
+    .language-switcher button{
+        flex:1;
+    }
+
+    .logo h1{
+        font-size:42px;
+    }
+
+    .header h2{
+        font-size:32px;
+    }
+
+    .tabs{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    #qrcode img{
+        width:250px;
+    }
+}
+
+@media(max-width:480px){
+
+    .tabs{
+        grid-template-columns:1fr;
+    }
+
+    .generate-btn{
+        padding:18px;
+        font-size:16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <div class="header-top">
+
+        <div class="logo">
+
+            <h1>Rita <span>QR</span></h1>
+
+            <p id="sideText">
+                Create creative and beautiful QR codes with a smooth modern experience.
+            </p>
+
+        </div>
+
+        <!-- LANGUAGE -->
+
+        <div class="language-switcher">
+
+            <button onclick="setLanguage('en')">
+                EN
+            </button>
+
+            <button onclick="setLanguage('ar')">
+                AR
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN HEADER -->
+
+    <div class="header">
+
+        <h2 id="mainTitle">
+            Generate Beautiful QR Codes
+        </h2>
+
+        <p id="mainDesc">
+            Simple • Creative • Fast • Responsive
+        </p>
+
+    </div>
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+        <button class="tab active" onclick="selectType('url',this)">
+            URL
+        </button>
+
+        <button class="tab" onclick="selectType('text',this)">
+            TEXT
+        </button>
+
+        <button class="tab" onclick="selectType('wifi',this)">
+            WIFI
+        </button>
+
+        <button class="tab" onclick="selectType('vcard',this)">
+            VCARD
+        </button>
+
+    </div>
+
+    <!-- FORM -->
+
+    <div class="form" id="formArea"></div>
+
+    <!-- GENERATE BUTTON -->
+
+    <button class="generate-btn" onclick="generateQR()" id="generateBtn">
+        Generate Beautiful QR
+    </button>
+
+    <!-- QR -->
+
+    <div class="qr-box">
+
+        <div id="qrcode"></div>
+
+        <button class="download" id="downloadBtn" onclick="downloadQR()">
+            Download QR
+        </button>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        Rita QR © Designed by MAHMOOD HWAREEN
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+
+let currentType = "url";
+
+const formArea = document.getElementById("formArea");
+
+renderForm();
+
+/* FORM */
+
+function renderForm(){
+
+    if(currentType === "url"){
+
+        formArea.innerHTML = `
+            <input class="input" id="url"
+            placeholder="https://example.com">
+        `;
+    }
+
+    if(currentType === "text"){
+
+        formArea.innerHTML = `
+            <textarea class="input" id="text"
+            rows="6"
+            placeholder="Write your text..."></textarea>
+        `;
+    }
+
+    if(currentType === "wifi"){
+
+        formArea.innerHTML = `
+            <input class="input" id="ssid"
+            placeholder="WiFi Name">
+
+            <input class="input" id="password"
+            placeholder="Password">
+        `;
+    }
+
+    if(currentType === "vcard"){
+
+        formArea.innerHTML = `
+            <input class="input" id="name"
+            placeholder="Full Name">
+
+            <input class="input" id="phone"
+            placeholder="Phone Number">
+
+            <input class="input" id="email"
+            placeholder="Email Address">
+        `;
+    }
+}
+
+/* SELECT TYPE */
+
+function selectType(type,btn){
+
+    currentType = type;
+
+    document.querySelectorAll(".tab")
+    .forEach(tab => tab.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    renderForm();
+}
+
+/* GENERATE QR */
+
+function generateQR(){
+
+    let data = "";
+
+    if(currentType === "url"){
+        data = document.getElementById("url").value;
+    }
+
+    if(currentType === "text"){
+        data = document.getElementById("text").value;
+    }
+
+    if(currentType === "wifi"){
+
+        const ssid = document.getElementById("ssid").value;
+        const pass = document.getElementById("password").value;
+
+        data = `WIFI:T:WPA;S:${ssid};P:${pass};;`;
+    }
+
+    if(currentType === "vcard"){
+
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+
+        data =
+`BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+TEL:${phone}
+EMAIL:${email}
+END:VCARD`;
+    }
+
+    if(!data.trim()){
+
+        alert("Please fill all fields");
+        return;
+    }
+
+    document.getElementById("qrcode").innerHTML = "";
+
+    new QRCode(document.getElementById("qrcode"),{
+        text:data,
+        width:320,
+        height:320,
+        colorDark:"#111827",
+        colorLight:"#ffffff",
+        correctLevel:QRCode.CorrectLevel.H
+    });
+
+    document.getElementById("downloadBtn")
+    .style.display = "block";
+}
+
+/* DOWNLOAD */
+
+function downloadQR(){
+
+    const img = document.querySelector("#qrcode img");
+
+    if(!img) return;
+
+    const link = document.createElement("a");
+
+    link.href = img.src;
+    link.download = "rita-qr.png";
+
+    link.click();
+}
+
+/* LANGUAGE */
+
+function setLanguage(lang){
+
+    if(lang === "ar"){
+
+        document.body.style.fontFamily = "'Cairo', sans-serif";
+
+        document.documentElement.lang = "ar";
+        document.documentElement.dir = "rtl";
+
+        document.getElementById("sideText").innerText =
+        "أنشئ رموز QR إبداعية وجميلة بتجربة حديثة وسلسة.";
+
+        document.getElementById("mainTitle").innerText =
+        "أنشئ رموز QR جميلة";
+
+        document.getElementById("mainDesc").innerText =
+        "بسيط • إبداعي • سريع • متجاوب";
+
+        document.getElementById("generateBtn").innerText =
+        "إنشاء QR جميل";
+
+        document.getElementById("downloadBtn").innerText =
+        "تحميل QR";
+
+    }else{
+
+        document.body.style.fontFamily = "'Inter', sans-serif";
+
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+
+        document.getElementById("sideText").innerText =
+        "Create creative and beautiful QR codes with a smooth modern experience.";
+
+        document.getElementById("mainTitle").innerText =
+        "Generate Beautiful QR Codes";
+
+        document.getElementById("mainDesc").innerText =
+        "Simple • Creative • Fast • Responsive";
+
+        document.getElementById("generateBtn").innerText =
+        "Generate Beautiful QR";
+
+        document.getElementById("downloadBtn").innerText =
+        "Download QR";
+    }
+}
+
+</script>
+<script>
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener("load", () => {
+
+    navigator.serviceWorker
+    .register("./service-worker.js");
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
